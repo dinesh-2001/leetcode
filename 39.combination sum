@@ -1,0 +1,18 @@
+def combinationsum(ind,candidates,target,ans,ds):
+        if(ind == len(candidates)):
+            if(target==0):
+                ans.append(ds) 
+                print(ans)
+            return ans
+        if(candidates[ind]<=target):
+            ds.append(candidates[ind])
+            combinationsum(ind,candidates,target-candidates[ind],ans,ds)
+            ds.pop()
+        combinationsum(ind+1,candidates,target,ans,ds)
+i=input().split()
+n=int(input())
+a=[ int(j) for j in i ]
+ans=[]
+ds=[]
+a=combinationsum(0,a,n,ans,ds)
+print(a)
